@@ -14,6 +14,7 @@
 - Run command used: `docker run -d --name juice-shop -p 127.0.0.1:3000:3000 bkimminich/juice-shop:v19.0.0`
 - Access URL: http://127.0.0.1:3000
 - Network exposure: 127.0.0.1 only [x] Yes  [ ] No
+![](submission1_1.png)
 
 ## Health Check
 
