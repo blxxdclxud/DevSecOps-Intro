@@ -45,7 +45,7 @@ ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE8S18eW1jI2o9CS/Lw19XYB+SktHSCFukbtEv2+hb9H
 Configured Git to use SSH signing:
 
 ```sh
-git config --global user.signingkey "/path/to/lab3_signing_key"
+git config --global user.signingkey "~/.ssh/lab3_signing_key"
 git config --global commit.gpgSign true
 git config --global gpg.format ssh
 ```
@@ -68,7 +68,7 @@ The `-S` flag tells Git to sign the commit with the configured SSH key. Once the
 
 ### Why Commit Signing is Critical in DevSecOps
 
-Commit signing is one of those controls that feels optional until something bad happens. Here is why it matters in practice:
+Commit signing is one of those controls that feels optional until something bad happens. It matters because:
 
 1. **Identity verification** — Anyone can fake a git username. SSH signing proves you actually own the private key linked to your GitHub account.
 2. **Supply chain security** — A signed commit history means if someone injects malicious code, you can immediately see which commit is unsigned (or signed by an unknown key).
