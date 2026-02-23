@@ -192,8 +192,7 @@ Commit went through successfully.
 Pre-commit scanning is a "shift left" security control — it catches problems before they ever enter the repository. Here is why that matters:
 
 - **Secrets in git history are permanent** — even if you delete a file later, the secret lives in the git history. Anyone who cloned the repo before the fix already has it. The only real fix is to rotate the credential.
-- **Developers make mistakes** — it is easy to accidentally hardcode a token while debugging locally and forget to remove it before committing. An automated hook removes the human memory requirement.
-- **Speed of response** — a secret that never gets committed never needs an incident response. Blocking at commit time is orders of magnitude cheaper than discovering a leaked key in production.
+- **Developers make mistakes** — it is easy to hardcode a token while debugging locally and forget to remove it before committing. An automated hook removes the human memory requirement.
 - **Defense in depth** — pre-commit hooks + CI scanning + repository scanning (like GitHub secret scanning) together mean a secret has to bypass three independent controls before it causes damage.
 
 TruffleHog focuses on finding credentials that actually work by trying to verify them against real services. Gitleaks uses regex patterns to catch credentials even when they look fake or are in example code. Using both together gives better coverage.
