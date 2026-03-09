@@ -1,0 +1,112 @@
+rules:
+  - id: sql-injection-sequelize
+    patterns:
+      - pattern: |
+          $DB.query($X + $Y, ...)
+      - pattern-not: |
+          $DB.query($X, {...})
+    message: "Possible SQL injection via string concatenation in query"
+    languages: [javascript, typescript]
+    severity: ERROR
+
+  - id: hardcoded-jwt-secret
+    pattern: |
+      jwt.sign($PAYLOAD, "$SECRET", ...)
+    message: "Hardcoded JWT secret key"
+    languages: [javascript, typescript]
+    severity: ERROR
+
+  - id: eval-usage
+    pattern: eval($X)
+    message: "Use of eval() can lead to code injection"
+    languages: [javascript, typescript]
+    severity: ERROR
+
+  - id: hardcoded-rsa-key
+    pattern: |
+      $X = "-----BEGIN RSA PRIVATE KEY-----..."
+    message: "Hardcoded RSA private key in source"
+    languages: [javascript, typescript]
+    severity: ERROR
+
+  - id: insecure-random
+    pattern: Math.random()
+    message: "Math.random() is not cryptographically secure. Use crypto.randomBytes() instead."
+    languages: [javascript, typescript]
+    severity: WARNING
+
+  - id: md5-usage
+    patterns:
+      - pattern: crypto.createHash("md5")
+    message: "MD5 is weak for security purposes, use SHA-256 or stronger"
+    languages: [javascript, typescript]
+    severity: WARNING
+
+  - id: sha1-usage
+    pattern: crypto.createHash("sha1")
+    message: "SHA-1 is weak for security purposes, use SHA-256 or stronger"
+    languages: [javascript, typescript]
+    severity: WARNING
+
+  - id: path-traversal
+    pattern: |
+      fs.readFile($REQ.params.$X, ...)
+    message: "Possible path traversal via user-controlled path"
+    languages: [javascript, typescript]
+    severity: ERROR
+
+  - id: helmet-missing
+    pattern-not-inside: |
+      app.use(helmet(...))
+    pattern: |
+      app.use(...)
+    message: "Helmet middleware may be missing for security headers"
+    languages: [javascript, typescript]
+    severity: INFO
+
+  - id: insecure-cookie
+    pattern: |
+      res.cookie($NAME, $VALUE, {..., httpOnly: false, ...})
+    message: "Cookie set without httpOnly flag"
+    languages: [javascript, typescript]
+    severity: WARNING
+
+  - id: xss-res-send
+    pattern: |
+      res.send($REQ.params.$X)
+    message: "Possible XSS via unsanitized request param in response"
+    languages: [javascript, typescript]
+    severity: ERROR
+
+  - id: xss-res-send-body
+    pattern: |
+      res.send($REQ.body.$X)
+    message: "Possible XSS via unsanitized request body in response"
+    languages: [javascript, typescript]
+    severity: ERROR
+
+  - id: nosql-injection
+    pattern: |
+      $DB.find({$FIELD: $REQ.body.$X})
+    message: "Possible NoSQL injection via user input in query filter"
+    languages: [javascript, typescript]
+    severity: ERROR
+
+  - id: debug-mode-enabled
+    pattern: |
+      debug: true
+    message: "Debug mode enabled - should not be in production"
+    languages: [javascript, typescript]
+    severity: WARNING
+
+  - id: hardcoded-credentials
+    patterns:
+      - pattern: |
+          password: "$PASS"
+      - pattern-not: |
+          password: ""
+      - pattern-not: |
+          password: "{%password%}"
+    message: "Hardcoded password in source code"
+    languages: [javascript, typescript]
+    severity: ERROR

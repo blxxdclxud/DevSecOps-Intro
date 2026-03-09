@@ -1,0 +1,1 @@
+=== SAST Analysis Report === jq .results | length /home/blxxdclxud/assignments/DevSecOps-Intro/labs/lab5/semgrep/semgrep-results.json echo Files scanned: 484 jq -r .results[] | .check_id /home/blxxdclxud/assignments/DevSecOps-Intro/labs/lab5/semgrep/semgrep-results.json

@@ -1,0 +1,15 @@
+Unauthenticated Scan:
+  Total alert types: 11
+  High: 0
+  Medium: 2
+  Low: 6
+  Info: 3
+  Unique URLs with findings: 21
+
+Authenticated Scan:
+  Total alert types: 14
+  High: 1
+  Medium: 4
+  Low: 5
+  Info: 4
+  Unique URLs with findings: 21
