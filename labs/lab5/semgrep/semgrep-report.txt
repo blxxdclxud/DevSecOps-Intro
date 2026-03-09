@@ -1,0 +1,734 @@
+                     
+                     
+┌───────────────────┐
+│ 242 Code Findings │
+└───────────────────┘
+                     
+    /src/Gruntfile.js
+    ❯❱ output.md5-usage
+          ❰❰ Blocking ❱❱
+          MD5 is weak for security purposes, use SHA-256 or stronger
+                                                                    
+           77┆ const md5 = crypto.createHash('md5')
+                            
+    /src/data/datacreator.ts
+    ❯❱ output.insecure-random
+          ❰❰ Blocking ❱❱
+          Math.random() is not cryptographically secure. Use crypto.randomBytes() instead.
+                                                                                          
+          247┆ for (let i = 0; i < length; i++) { text += possible.charAt(Math.floor(Math.random() *
+               possible.length)) }                                                                  
+            ⋮┆----------------------------------------
+          265┆ quantity: product.quantity ?? Math.floor(Math.random() * 70 + 30),
+            ⋮┆----------------------------------------
+          323┆ product.price = product.price ?? Math.floor(Math.random() * 9 + 1)
+            ⋮┆----------------------------------------
+          698┆ eta: Math.floor((Math.random() * 5) + 1).toString(),
+                                                                        
+    /src/data/static/codefixes/accessLogDisclosureChallenge_1_correct.ts
+     ❱ output.helmet-missing
+          ❰❰ Blocking ❱❱
+          Helmet middleware may be missing for security headers
+                                                               
+            2┆ app.use('/ftp', serveIndexMiddleware, serveIndex('ftp', { icons: true }))
+            ⋮┆----------------------------------------
+            3┆ app.use('/ftp(?!/quarantine)/:file', servePublicFiles())
+            ⋮┆----------------------------------------
+            4┆ app.use('/ftp/quarantine/:file', serveQuarantineFiles())
+            ⋮┆----------------------------------------
+            6┆ app.use('/.well-known', serveIndexMiddleware, serveIndex('.well-known', { icons: true,
+               view: 'details' }))                                                                   
+            ⋮┆----------------------------------------
+            7┆ app.use('/.well-known', express.static('.well-known'))
+            ⋮┆----------------------------------------
+           10┆ app.use('/encryptionkeys', serveIndexMiddleware, serveIndex('encryptionkeys', { icons:
+               true, view: 'details' }))                                                             
+            ⋮┆----------------------------------------
+           11┆ app.use('/encryptionkeys/:file', serveKeyFiles())
+            ⋮┆----------------------------------------
+           14┆ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
+            ⋮┆----------------------------------------
+           16┆ app.use(express.static(path.resolve('frontend/dist/frontend')))
+            ⋮┆----------------------------------------
+           17┆ app.use(cookieParser('kekse'))
+                                                                
+    /src/data/static/codefixes/accessLogDisclosureChallenge_2.ts
+     ❱ output.helmet-missing
+          ❰❰ Blocking ❱❱
+          Helmet middleware may be missing for security headers
+                                                               
+            2┆ app.use('/ftp', serveIndexMiddleware, serveIndex('ftp', { icons: true }))
+            ⋮┆----------------------------------------
+            3┆ app.use('/ftp(?!/quarantine)/:file', servePublicFiles())
+            ⋮┆----------------------------------------
+            4┆ app.use('/ftp/quarantine/:file', serveQuarantineFiles())
+            ⋮┆----------------------------------------
+            6┆ app.use('/.well-known', serveIndexMiddleware, serveIndex('.well-known', { icons: true,
+               view: 'details' }))                                                                   
+            ⋮┆----------------------------------------
+            7┆ app.use('/.well-known', express.static('.well-known'))
+            ⋮┆----------------------------------------
+           10┆ app.use('/encryptionkeys', serveIndexMiddleware, serveIndex('encryptionkeys', { icons:
+               true, view: 'details' }))                                                             
+            ⋮┆----------------------------------------
+           11┆ app.use('/encryptionkeys/:file', serveKeyFiles())
+            ⋮┆----------------------------------------
+           14┆ app.use('/support/logs', serveIndexMiddleware, serveIndex('logs', { icons: true }))
+            ⋮┆----------------------------------------
+           15┆ app.use('/support/logs/:file', serveLogFiles())
+            ⋮┆----------------------------------------
+           18┆ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
+            ⋮┆----------------------------------------
+           20┆ app.use(express.static(path.resolve('frontend/dist/frontend')))
+            ⋮┆----------------------------------------
+           21┆ app.use(cookieParser('kekse'))
+                                                                
+    /src/data/static/codefixes/accessLogDisclosureChallenge_3.ts
+     ❱ output.helmet-missing
+          ❰❰ Blocking ❱❱
+          Helmet middleware may be missing for security headers
+                                                               
+            2┆ app.use('/ftp', serveIndexMiddleware, serveIndex('ftp', { icons: true }))
+            ⋮┆----------------------------------------
+            3┆ app.use('/ftp(?!/quarantine)/:file', servePublicFiles())
+            ⋮┆----------------------------------------
+            4┆ app.use('/ftp/quarantine/:file', serveQuarantineFiles())
+            ⋮┆----------------------------------------
+            6┆ app.use('/.well-known', serveIndexMiddleware, serveIndex('.well-known', { icons: true,
+               view: 'details' }))                                                                   
+            ⋮┆----------------------------------------
+            7┆ app.use('/.well-known', express.static('.well-known'))
+            ⋮┆----------------------------------------
+           10┆ app.use('/encryptionkeys', serveIndexMiddleware, serveIndex('encryptionkeys', { icons:
+               true, view: 'details' }))                                                             
+            ⋮┆----------------------------------------
+           11┆ app.use('/encryptionkeys/:file', serveKeyFiles())
+            ⋮┆----------------------------------------
+           14┆ app.use('/support/logs', serveIndexMiddleware, serveIndex('logs', { icons: true, view:
+               'details' }))                                                                         
+            ⋮┆----------------------------------------
+           17┆ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
+            ⋮┆----------------------------------------
+           19┆ app.use(express.static(path.resolve('frontend/dist/frontend')))
+            ⋮┆----------------------------------------
+           20┆ app.use(cookieParser('kekse'))
+                                                                
+    /src/data/static/codefixes/accessLogDisclosureChallenge_4.ts
+     ❱ output.helmet-missing
+          ❰❰ Blocking ❱❱
+          Helmet middleware may be missing for security headers
+                                                               
+            2┆ app.use('/ftp', serveIndexMiddleware, serveIndex('ftp', { icons: true }))
+            ⋮┆----------------------------------------
+            3┆ app.use('/ftp(?!/quarantine)/:file', servePublicFiles())
+            ⋮┆----------------------------------------
+            4┆ app.use('/ftp/quarantine/:file', serveQuarantineFiles())
+            ⋮┆----------------------------------------
+            6┆ app.use('/.well-known', serveIndexMiddleware, serveIndex('.well-known', { icons: true,
+               view: 'details' }))                                                                   
+            ⋮┆----------------------------------------
+            7┆ app.use('/.well-known', express.static('.well-known'))
+            ⋮┆----------------------------------------
+           10┆ app.use('/encryptionkeys', serveIndexMiddleware, serveIndex('encryptionkeys', { icons:
+               true, view: 'details' }))                                                             
+            ⋮┆----------------------------------------
+           11┆ app.use('/encryptionkeys/:file', serveKeyFiles())
+            ⋮┆----------------------------------------
+           14┆ app.use('/support/logs/:file', serveLogFiles())
+            ⋮┆----------------------------------------
+           17┆ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
+            ⋮┆----------------------------------------
+           19┆ app.use(express.static(path.resolve('frontend/dist/frontend')))
+            ⋮┆----------------------------------------
+           20┆ app.use(cookieParser('kekse'))
+                                                          
+    /src/data/static/codefixes/changeProductChallenge_1.ts
+     ❱ output.helmet-missing
+          ❰❰ Blocking ❱❱
+          Helmet middleware may be missing for security headers
+                                                               
+            5┆ app.use('/rest/basket', security.isAuthorized(), security.appendUserId())
+            ⋮┆----------------------------------------
+            7┆ app.use('/api/BasketItems', security.isAuthorized())
+            ⋮┆----------------------------------------
+            8┆ app.use('/api/BasketItems/:id', security.isAuthorized())
+            ⋮┆----------------------------------------
+           10┆ app.use('/api/Feedbacks/:id', security.isAuthorized())
+            ⋮┆----------------------------------------
+           22┆ app.use('/api/Challenges/:id', security.denyAll())
+            ⋮┆----------------------------------------
+           31┆ app.use('/api/Complaints/:id', security.denyAll())
+            ⋮┆----------------------------------------
+           41┆ app.use('/api/SecurityQuestions/:id', security.denyAll())
+            ⋮┆----------------------------------------
+           44┆ app.use('/api/SecurityAnswers/:id', security.denyAll())
+            ⋮┆----------------------------------------
+           46┆ app.use('/rest/user/authentication-details', security.isAuthorized())
+            ⋮┆----------------------------------------
+           47┆ app.use('/rest/basket/:id', security.isAuthorized())
+            ⋮┆----------------------------------------
+           48┆ app.use('/rest/basket/:id/order', security.isAuthorized())
+            ⋮┆----------------------------------------
+           50┆ app.use('/b2b/v2', security.isAuthorized())
+            ⋮┆----------------------------------------
+           57┆ app.use('/api/Quantitys/:id', security.isAccounting(), IpFilter(['123.456.789'], { mode:
+               'allow' }))                                                                             
+            ⋮┆----------------------------------------
+           61┆ app.use('/api/PrivacyRequests', security.isAuthorized())
+            ⋮┆----------------------------------------
+           62┆ app.use('/api/PrivacyRequests/:id', security.isAuthorized())
+            ⋮┆----------------------------------------
+           72┆ app.use('/api/PrivacyRequests/:id', security.denyAll())
+                                                          
+    /src/data/static/codefixes/changeProductChallenge_2.ts
+     ❱ output.helmet-missing
+          ❰❰ Blocking ❱❱
+          Helmet middleware may be missing for security headers
+                                                               
+            5┆ app.use('/rest/basket', security.isAuthorized(), security.appendUserId())
+            ⋮┆----------------------------------------
+            7┆ app.use('/api/BasketItems', security.isAuthorized())
+            ⋮┆----------------------------------------
+            8┆ app.use('/api/BasketItems/:id', security.isAuthorized())
+            ⋮┆----------------------------------------
+           10┆ app.use('/api/Feedbacks/:id', security.isAuthorized())
+            ⋮┆----------------------------------------
+           19┆ app.use('/api/Challenges/:id', security.denyAll())
+            ⋮┆----------------------------------------
+           28┆ app.use('/api/Complaints/:id', security.denyAll())
+            ⋮┆----------------------------------------
+           38┆ app.use('/api/SecurityQuestions/:id', security.denyAll())
+            ⋮┆----------------------------------------
+           41┆ app.use('/api/SecurityAnswers/:id', security.denyAll())
+            ⋮┆----------------------------------------
+           43┆ app.use('/rest/user/authentication-details', security.isAuthorized())
+            ⋮┆----------------------------------------
+           44┆ app.use('/rest/basket/:id', security.isAuthorized())
+            ⋮┆----------------------------------------
+           45┆ app.use('/rest/basket/:id/order', security.isAuthorized())
+            ⋮┆----------------------------------------
+           47┆ app.use('/b2b/v2', security.isAuthorized())
+            ⋮┆----------------------------------------
+           54┆ app.use('/api/Quantitys/:id', security.isAccounting(), IpFilter(['123.456.789'], { mode:
+               'allow' }))                                                                             
+            ⋮┆----------------------------------------
+           58┆ app.use('/api/PrivacyRequests', security.isAuthorized())
+            ⋮┆----------------------------------------
+           59┆ app.use('/api/PrivacyRequests/:id', security.isAuthorized())
+            ⋮┆----------------------------------------
+           69┆ app.use('/api/PrivacyRequests/:id', security.denyAll())
+                                                                  
+    /src/data/static/codefixes/changeProductChallenge_3_correct.ts
+     ❱ output.helmet-missing
+          ❰❰ Blocking ❱❱
+          Helmet middleware may be missing for security headers
+                                                               
+            5┆ app.use('/rest/basket', security.isAuthorized(), security.appendUserId())
+            ⋮┆----------------------------------------
+            7┆ app.use('/api/BasketItems', security.isAuthorized())
+            ⋮┆----------------------------------------
+            8┆ app.use('/api/BasketItems/:id', security.isAuthorized())
+            ⋮┆----------------------------------------
+           10┆ app.use('/api/Feedbacks/:id', security.isAuthorized())
+            ⋮┆----------------------------------------
+           23┆ app.use('/api/Challenges/:id', security.denyAll())
+            ⋮┆----------------------------------------
+           32┆ app.use('/api/Complaints/:id', security.denyAll())
+            ⋮┆----------------------------------------
+           42┆ app.use('/api/SecurityQuestions/:id', security.denyAll())
+            ⋮┆----------------------------------------
+           45┆ app.use('/api/SecurityAnswers/:id', security.denyAll())
+            ⋮┆----------------------------------------
+           47┆ app.use('/rest/user/authentication-details', security.isAuthorized())
+            ⋮┆----------------------------------------
+           48┆ app.use('/rest/basket/:id', security.isAuthorized())
+            ⋮┆----------------------------------------
+           49┆ app.use('/rest/basket/:id/order', security.isAuthorized())
+            ⋮┆----------------------------------------
+           51┆ app.use('/b2b/v2', security.isAuthorized())
+            ⋮┆----------------------------------------
+           58┆ app.use('/api/Quantitys/:id', security.isAccounting(), IpFilter(['123.456.789'], { mode:
+               'allow' }))                                                                             
+            ⋮┆----------------------------------------
+           62┆ app.use('/api/PrivacyRequests', security.isAuthorized())
+            ⋮┆----------------------------------------
+           63┆ app.use('/api/PrivacyRequests/:id', security.isAuthorized())
+            ⋮┆----------------------------------------
+           73┆ app.use('/api/PrivacyRequests/:id', security.denyAll())
+                                                          
+    /src/data/static/codefixes/changeProductChallenge_4.ts
+     ❱ output.helmet-missing
+          ❰❰ Blocking ❱❱
+          Helmet middleware may be missing for security headers
+                                                               
+            5┆ app.use('/rest/basket', security.isAuthorized(), security.appendUserId())
+            ⋮┆----------------------------------------
+            7┆ app.use('/api/BasketItems', security.isAuthorized())
+            ⋮┆----------------------------------------
+            8┆ app.use('/api/BasketItems/:id', security.isAuthorized())
+            ⋮┆----------------------------------------
+           10┆ app.use('/api/Feedbacks/:id', security.isAuthorized())
+            ⋮┆----------------------------------------
+           23┆ app.use('/api/Challenges/:id', security.denyAll())
+            ⋮┆----------------------------------------
+           32┆ app.use('/api/Complaints/:id', security.denyAll())
+            ⋮┆----------------------------------------
+           42┆ app.use('/api/SecurityQuestions/:id', security.denyAll())
+            ⋮┆----------------------------------------
+           45┆ app.use('/api/SecurityAnswers/:id', security.denyAll())
+            ⋮┆----------------------------------------
+           47┆ app.use('/rest/user/authentication-details', security.isAuthorized())
+            ⋮┆----------------------------------------
+           48┆ app.use('/rest/basket/:id', security.isAuthorized())
+            ⋮┆----------------------------------------
+           49┆ app.use('/rest/basket/:id/order', security.isAuthorized())
+            ⋮┆----------------------------------------
+           51┆ app.use('/b2b/v2', security.isAuthorized())
+            ⋮┆----------------------------------------
+           58┆ app.use('/api/Quantitys/:id', security.isAccounting(), IpFilter(['123.456.789'], { mode:
+               'allow' }))                                                                             
+            ⋮┆----------------------------------------
+           62┆ app.use('/api/PrivacyRequests', security.isAuthorized())
+            ⋮┆----------------------------------------
+           63┆ app.use('/api/PrivacyRequests/:id', security.isAuthorized())
+            ⋮┆----------------------------------------
+           73┆ app.use('/api/PrivacyRequests/:id', security.denyAll())
+                                                     
+    /src/data/static/codefixes/dbSchemaChallenge_1.ts
+   ❯❯❱ output.sql-injection-sequelize
+          ❰❰ Blocking ❱❱
+          Possible SQL injection via string concatenation in query
+                                                                  
+            5┆ models.sequelize.query("SELECT * FROM Products WHERE ((name LIKE '%"+criteria+"%' OR
+               description LIKE '%"+criteria+"%') AND deletedAt IS NULL) ORDER BY name")           
+                                                                     
+    /src/data/static/codefixes/directoryListingChallenge_1_correct.ts
+     ❱ output.helmet-missing
+          ❰❰ Blocking ❱❱
+          Helmet middleware may be missing for security headers
+                                                               
+            1┆ app.use('/.well-known', serveIndexMiddleware, serveIndex('.well-known', { icons: true,
+               view: 'details' }))                                                                   
+            ⋮┆----------------------------------------
+            2┆ app.use('/.well-known', express.static('.well-known'))
+            ⋮┆----------------------------------------
+            5┆ app.use('/encryptionkeys', serveIndexMiddleware, serveIndex('encryptionkeys', { icons:
+               true, view: 'details' }))                                                             
+            ⋮┆----------------------------------------
+            6┆ app.use('/encryptionkeys/:file', serveKeyFiles())
+            ⋮┆----------------------------------------
+            9┆ app.use('/support/logs', serveIndexMiddleware, serveIndex('logs', { icons: true, view:
+               'details' }))                                                                         
+            ⋮┆----------------------------------------
+           10┆ app.use('/support/logs/:file', serveLogFiles())
+            ⋮┆----------------------------------------
+           13┆ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
+            ⋮┆----------------------------------------
+           15┆ app.use(express.static(path.resolve('frontend/dist/frontend')))
+            ⋮┆----------------------------------------
+           16┆ app.use(cookieParser('kekse'))
+                                                             
+    /src/data/static/codefixes/directoryListingChallenge_2.ts
+     ❱ output.helmet-missing
+          ❰❰ Blocking ❱❱
+          Helmet middleware may be missing for security headers
+                                                               
+            2┆ app.use('/ftp(?!/quarantine)/:file', servePublicFiles())
+            ⋮┆----------------------------------------
+            3┆ app.use('/ftp/quarantine/:file', serveQuarantineFiles())
+            ⋮┆----------------------------------------
+            5┆ app.use('/.well-known', serveIndexMiddleware, serveIndex('.well-known', { icons: true,
+               view: 'details' }))                                                                   
+            ⋮┆----------------------------------------
+            6┆ app.use('/.well-known', express.static('.well-known'))
+            ⋮┆----------------------------------------
+            9┆ app.use('/encryptionkeys', serveIndexMiddleware, serveIndex('encryptionkeys', { icons:
+               true, view: 'details' }))                                                             
+            ⋮┆----------------------------------------
+           10┆ app.use('/encryptionkeys/:file', serveKeyFiles())
+            ⋮┆----------------------------------------
+           13┆ app.use('/support/logs', serveIndexMiddleware, serveIndex('logs', { icons: true, view:
+               'details' }))                                                                         
+            ⋮┆----------------------------------------
+           14┆ app.use('/support/logs/:file', serveLogFiles())
+            ⋮┆----------------------------------------
+           17┆ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
+            ⋮┆----------------------------------------
+           19┆ app.use(express.static(path.resolve('frontend/dist/frontend')))
+            ⋮┆----------------------------------------
+           20┆ app.use(cookieParser('kekse'))
+                                                             
+    /src/data/static/codefixes/directoryListingChallenge_3.ts
+     ❱ output.helmet-missing
+          ❰❰ Blocking ❱❱
+          Helmet middleware may be missing for security headers
+                                                               
+            2┆ app.use('/ftp', serveIndexMiddleware, serveIndex('ftp', { icons: true }))
+            ⋮┆----------------------------------------
+            4┆ app.use('/.well-known', serveIndexMiddleware, serveIndex('.well-known', { icons: true,
+               view: 'details' }))                                                                   
+            ⋮┆----------------------------------------
+            5┆ app.use('/.well-known', express.static('.well-known'))
+            ⋮┆----------------------------------------
+            8┆ app.use('/encryptionkeys', serveIndexMiddleware, serveIndex('encryptionkeys', { icons:
+               true, view: 'details' }))                                                             
+            ⋮┆----------------------------------------
+            9┆ app.use('/encryptionkeys/:file', serveKeyFiles())
+            ⋮┆----------------------------------------
+           12┆ app.use('/support/logs', serveIndexMiddleware, serveIndex('logs', { icons: true, view:
+               'details' }))                                                                         
+            ⋮┆----------------------------------------
+           13┆ app.use('/support/logs/:file', serveLogFiles())
+            ⋮┆----------------------------------------
+           16┆ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
+            ⋮┆----------------------------------------
+           18┆ app.use(express.static(path.resolve('frontend/dist/frontend')))
+            ⋮┆----------------------------------------
+           19┆ app.use(cookieParser('kekse'))
+                                                             
+    /src/data/static/codefixes/directoryListingChallenge_4.ts
+     ❱ output.helmet-missing
+          ❰❰ Blocking ❱❱
+          Helmet middleware may be missing for security headers
+                                                               
+            2┆ app.use('/ftp', serveIndexMiddleware, serveIndex('ftp', { icons: false }))
+            ⋮┆----------------------------------------
+            3┆ app.use('/ftp(?!/quarantine)/:file', servePublicFiles())
+            ⋮┆----------------------------------------
+            4┆ app.use('/ftp/quarantine/:file', serveQuarantineFiles())
+            ⋮┆----------------------------------------
+            6┆ app.use('/.well-known', serveIndexMiddleware, serveIndex('.well-known', { icons: true,
+               view: 'details' }))                                                                   
+            ⋮┆----------------------------------------
+            7┆ app.use('/.well-known', express.static('.well-known'))
+            ⋮┆----------------------------------------
+           10┆ app.use('/encryptionkeys', serveIndexMiddleware, serveIndex('encryptionkeys', { icons:
+               true, view: 'details' }))                                                             
+            ⋮┆----------------------------------------
+           11┆ app.use('/encryptionkeys/:file', serveKeyFiles())
+            ⋮┆----------------------------------------
+           14┆ app.use('/support/logs', serveIndexMiddleware, serveIndex('logs', { icons: true, view:
+               'details' }))                                                                         
+            ⋮┆----------------------------------------
+           15┆ app.use('/support/logs/:file', serveLogFiles())
+            ⋮┆----------------------------------------
+           18┆ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
+            ⋮┆----------------------------------------
+           20┆ app.use(express.static(path.resolve('frontend/dist/frontend')))
+            ⋮┆----------------------------------------
+           21┆ app.use(cookieParser('kekse'))
+                                                               
+    /src/data/static/codefixes/resetPasswordMortyChallenge_1.ts
+     ❱ output.helmet-missing
+          ❰❰ Blocking ❱❱
+          Helmet middleware may be missing for security headers
+                                                               
+            2┆ app.use('/rest/user/reset-password', rateLimit({
+            3┆   windowMs: 5 * 60 * 1000,
+            4┆   max: 100,
+            5┆   keyGenerator ({ headers, ip }) { return headers['X-Forwarded-For'] ?? ip }
+            6┆ }))
+                                                               
+    /src/data/static/codefixes/resetPasswordMortyChallenge_2.ts
+     ❱ output.helmet-missing
+          ❰❰ Blocking ❱❱
+          Helmet middleware may be missing for security headers
+                                                               
+            3┆ app.use('/rest/user/reset-password', rateLimit({
+            4┆   windowMs: 5 * 60 * 1000,
+            5┆   max: 100,
+            6┆   keyGenerator ({ headers, ip }) { return headers['Forwarded'] ?? ip }
+            7┆ }))
+                                                               
+    /src/data/static/codefixes/resetPasswordMortyChallenge_3.ts
+     ❱ output.helmet-missing
+          ❰❰ Blocking ❱❱
+          Helmet middleware may be missing for security headers
+                                                               
+            3┆ app.use('/rest/user/reset-password', rateLimit({
+            4┆   windowMs: 3 * 60 * 1000,
+            5┆   max: 10,
+            6┆   keyGenerator ({ headers, ip }) { return headers['X-Forwarded-For'] ?? ip }
+            7┆ }))
+                                                                       
+    /src/data/static/codefixes/resetPasswordMortyChallenge_4_correct.ts
+     ❱ output.helmet-missing
+          ❰❰ Blocking ❱❱
+          Helmet middleware may be missing for security headers
+                                                               
+            3┆ app.use('/rest/user/reset-password', rateLimit({
+            4┆   windowMs: 5 * 60 * 1000,
+            5┆   max: 100,
+            6┆ }))
+                                                                  
+    /src/frontend/src/app/Services/two-factor-auth-service.spec.ts
+   ❯❯❱ output.hardcoded-credentials
+          ❰❰ Blocking ❱❱
+          Hardcoded password in source code
+                                           
+           65┆ expect(req.request.body).toEqual({ password: 's3cr3t!', initialToken: 'initialToken',
+               setupToken: 'setupToken' })                                                          
+            ⋮┆----------------------------------------
+           81┆ expect(req.request.body).toEqual({ password: 's3cr3t!' })
+                                                                
+    /src/frontend/src/app/code-snippet/code-snippet.component.ts
+    ❯❱ output.insecure-random
+          ❰❰ Blocking ❱❱
+          Math.random() is not cryptographically secure. Use crypto.randomBytes() instead.
+                                                                                          
+          167┆ .map((fix, index) => ({ fix, index, sort: Math.random() }))
+                                                       
+    /src/frontend/src/app/oauth/oauth.component.spec.ts
+   ❯❯❱ output.hardcoded-credentials
+          ❰❰ Blocking ❱❱
+          Hardcoded password in source code
+                                           
+           84┆ expect(userService.save).toHaveBeenCalledWith({ email: 'test@test.com', password:
+               'bW9jLnRzZXRAdHNldA==', passwordRepeat: 'bW9jLnRzZXRAdHNldA==' })                
+            ⋮┆----------------------------------------
+           91┆ expect(userService.login).toHaveBeenCalledWith({ email: 'test@test.com', password:
+               'bW9jLnRzZXRAdHNldA==', oauth: true })                                            
+                                                             
+    /src/frontend/src/app/register/register.component.spec.ts
+   ❯❯❱ output.hardcoded-credentials
+          ❰❰ Blocking ❱❱
+          Hardcoded password in source code
+                                           
+          151┆ const user = { email: 'x@x.xx', password: 'password', passwordRepeat: 'password',
+               securityQuestion: { id: 1, question: 'Wat is?' }, securityAnswer: 'Answer' }     
+                                             
+    /src/frontend/src/assets/private/three.js
+    ❯❱ output.insecure-random
+          ❰❰ Blocking ❱❱
+          Math.random() is not cryptographically secure. Use crypto.randomBytes() instead.
+                                                                                          
+          6359┆ if (rnd <= 0x02) rnd = 0x2000000 + (Math.random()*0x1000000)|0;
+            ⋮┆----------------------------------------
+          6426┆ return ( 65280 * Math.random() + 255 * Math.random() ) / 65535;
+            ⋮┆----------------------------------------
+          6426┆ return ( 65280 * Math.random() + 255 * Math.random() ) / 65535;
+            ⋮┆----------------------------------------
+          6434┆ return low + Math.floor( Math.random() * ( high - low + 1 ) );
+            ⋮┆----------------------------------------
+          6442┆ return low + Math.random() * ( high - low );
+            ⋮┆----------------------------------------
+          6450┆ return range * ( 0.5 - Math.random() );
+            ⋮┆----------------------------------------
+          15504┆ this.material = material !== undefined ? material : new THREE.ParticleSystemMaterial( {
+               color: Math.random() * 0xffffff } );                                                     
+            ⋮┆----------------------------------------
+          15534┆ this.material = material !== undefined ? material : new THREE.LineBasicMaterial( { color:
+               Math.random() * 0xffffff } );                                                              
+            ⋮┆----------------------------------------
+          15567┆ this.material = material !== undefined ? material : new THREE.MeshBasicMaterial( { color:
+               Math.random() * 0xffffff } );                                                              
+                          
+    /src/lib/insecurity.ts
+    ❯❱ output.md5-usage
+          ❰❰ Blocking ❱❱
+          MD5 is weak for security purposes, use SHA-256 or stronger
+                                                                    
+           43┆ export const hash = (data: string) => crypto.createHash('md5').update(data).digest('hex')
+   
+    ❯❱ output.insecure-random
+          ❰❰ Blocking ❱❱
+          Math.random() is not cryptographically secure. Use crypto.randomBytes() instead.
+                                                                                          
+           55┆ export const denyAll = () => expressJwt({ secret: '' + Math.random() } as any)
+   
+   ❯❯❱ output.hardcoded-jwt-secret
+          ❰❰ Blocking ❱❱
+          Hardcoded JWT secret key
+                                  
+           56┆ export const authorize = (user = {}) => jwt.sign(user, privateKey, { expiresIn: '6h',
+               algorithm: 'RS256' })                                                                
+                          
+    /src/routes/captcha.ts
+    ❯❱ output.insecure-random
+          ❰❰ Blocking ❱❱
+          Math.random() is not cryptographically secure. Use crypto.randomBytes() instead.
+                                                                                          
+           15┆ const firstTerm = Math.floor((Math.random() * 10) + 1)
+            ⋮┆----------------------------------------
+           16┆ const secondTerm = Math.floor((Math.random() * 10) + 1)
+            ⋮┆----------------------------------------
+           17┆ const thirdTerm = Math.floor((Math.random() * 10) + 1)
+            ⋮┆----------------------------------------
+           19┆ const firstOperator = operators[Math.floor((Math.random() * 3))]
+            ⋮┆----------------------------------------
+           20┆ const secondOperator = operators[Math.floor((Math.random() * 3))]
+   
+   ❯❯❱ output.eval-usage
+          ❰❰ Blocking ❱❱
+          Use of eval() can lead to code injection
+                                                  
+           23┆ const answer = eval(expression).toString() // eslint-disable-line no-eval
+                              
+    /src/routes/userProfile.ts
+   ❯❯❱ output.eval-usage
+          ❰❰ Blocking ❱❱
+          Use of eval() can lead to code injection
+                                                  
+           62┆ username = eval(code) // eslint-disable-line no-eval
+                  
+    /src/server.ts
+     ❱ output.helmet-missing
+          ❰❰ Blocking ❱❱
+          Helmet middleware may be missing for security headers
+                                                               
+          178┆ app.use(compression())
+            ⋮┆----------------------------------------
+          182┆ app.use(cors())
+            ⋮┆----------------------------------------
+          185┆ app.use(helmet.noSniff())
+            ⋮┆----------------------------------------
+          186┆ app.use(helmet.frameguard())
+            ⋮┆----------------------------------------
+          189┆ app.use(featurePolicy({
+          190┆   features: {
+          191┆     payment: ["'self'"]
+          192┆   }
+          193┆ }))
+            ⋮┆----------------------------------------
+          196┆ app.use((req: Request, res: Response, next: NextFunction) => {
+          197┆   res.append('X-Recruiting', config.get('application.securityTxt.hiring'))
+          198┆   next()
+          199┆ })
+            ⋮┆----------------------------------------
+          202┆ app.use((req: Request, res: Response, next: NextFunction) => {
+          203┆   req.url = req.url.replace(/[/]+/g, '/')
+          204┆   next()
+          205┆ })
+            ⋮┆----------------------------------------
+          208┆ app.use(metrics.observeRequestMetricsMiddleware())
+            ⋮┆----------------------------------------
+          214┆ app.use(['/.well-known/security.txt', '/security.txt'], securityTxt({
+          215┆   contact: config.get('application.securityTxt.contact'),
+          216┆   encryption: config.get('application.securityTxt.encryption'),
+          217┆   acknowledgements: config.get('application.securityTxt.acknowledgements'),
+          218┆   'Preferred-Languages': [...new Set(locales.map((locale: { key: string }) =>
+               locale.key.substr(0, 2)))].join(', '),                                       
+          219┆   hiring: config.get('application.securityTxt.hiring'),
+          220┆   csaf: config.get<string>('server.baseUrl') +     
+               config.get<string>('application.securityTxt.csaf'),
+          221┆   expires: securityTxtExpiration.toUTCString()
+          222┆ }))
+            ⋮┆----------------------------------------
+          225┆ app.use(robots({ UserAgent: '*', Disallow: '/ftp' }))
+            ⋮┆----------------------------------------
+          228┆ app.use(antiCheat.checkForPreSolveInteractions())
+            ⋮┆----------------------------------------
+          231┆ app.use('/assets/public/images/padding', verify.accessControlChallenges())
+            ⋮┆----------------------------------------
+          232┆ app.use('/assets/public/images/products', verify.accessControlChallenges())
+            ⋮┆----------------------------------------
+          233┆ app.use('/assets/public/images/uploads', verify.accessControlChallenges())
+            ⋮┆----------------------------------------
+          234┆ app.use('/assets/i18n', verify.accessControlChallenges())
+            ⋮┆----------------------------------------
+          237┆ app.use('/solve/challenges/server-side', verify.serverSideChallenges())
+            ⋮┆----------------------------------------
+          269┆ app.use('/ftp', serveIndexMiddleware, serveIndex('ftp', { icons: true })) // vuln-code-
+               snippet vuln-line directoryListingChallenge                                            
+            ⋮┆----------------------------------------
+          270┆ app.use('/ftp(?!/quarantine)/:file', servePublicFiles()) // vuln-code-snippet vuln-line
+               directoryListingChallenge                                                              
+            ⋮┆----------------------------------------
+          271┆ app.use('/ftp/quarantine/:file', serveQuarantineFiles()) // vuln-code-snippet neutral-line
+               directoryListingChallenge                                                                 
+            ⋮┆----------------------------------------
+          273┆ app.use('/.well-known', serveIndexMiddleware, serveIndex('.well-known', { icons: true,
+               view: 'details' }))                                                                   
+            ⋮┆----------------------------------------
+          274┆ app.use('/.well-known', express.static('.well-known'))
+            ⋮┆----------------------------------------
+          277┆ app.use('/encryptionkeys', serveIndexMiddleware, serveIndex('encryptionkeys', { icons:
+               true, view: 'details' }))                                                             
+            ⋮┆----------------------------------------
+          278┆ app.use('/encryptionkeys/:file', serveKeyFiles())
+            ⋮┆----------------------------------------
+          281┆ app.use('/support/logs', serveIndexMiddleware, serveIndex('logs', { icons: true, view:
+               'details' })) // vuln-code-snippet vuln-line accessLogDisclosureChallenge             
+            ⋮┆----------------------------------------
+          282┆ app.use('/support/logs', verify.accessControlChallenges()) // vuln-code-snippet hide-line
+            ⋮┆----------------------------------------
+          283┆ app.use('/support/logs/:file', serveLogFiles()) // vuln-code-snippet vuln-line
+               accessLogDisclosureChallenge                                                  
+            ⋮┆----------------------------------------
+          286┆ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
+            ⋮┆----------------------------------------
+          288┆ app.use(express.static(path.resolve('frontend/dist/frontend')))
+            ⋮┆----------------------------------------
+          289┆ app.use(cookieParser('kekse'))
+            ⋮┆----------------------------------------
+          300┆ app.use(i18n.init)
+            ⋮┆----------------------------------------
+          302┆ app.use(bodyParser.urlencoded({ extended: true }))
+            ⋮┆----------------------------------------
+          309┆ app.use(bodyParser.text({ type: '*/*' }))
+            ⋮┆----------------------------------------
+          310┆ app.use(function jsonParser (req: Request, res: Response, next: NextFunction) {
+          311┆   // @ts-expect-error FIXME intentionally saving original request in this property
+          312┆   req.rawBody = req.body
+          313┆   if (req.headers['content-type']?.includes('application/json')) {
+          314┆     if (!req.body) {
+          315┆       req.body = {}
+          316┆     }
+          317┆     if (req.body !== Object(req.body)) { // Expensive workaround for 500 errors during
+               Frisby test run (see #640)                                                            
+          318┆       req.body = JSON.parse(req.body)
+          319┆     }
+             [hid 3 additional lines, adjust with --max-lines-per-finding] 
+          333┆ app.use(morgan('combined', { stream: accessLogStream }))
+            ⋮┆----------------------------------------
+          338┆ app.use('/rest/user/reset-password', rateLimit({
+          339┆   windowMs: 5 * 60 * 1000,
+          340┆   max: 100,
+          341┆   keyGenerator ({ headers, ip }: { headers: any, ip: any }) { return headers['X-Forwarded-
+               For'] ?? ip } // vuln-code-snippet vuln-line resetPasswordMortyChallenge                  
+          342┆ }))
+            ⋮┆----------------------------------------
+          348┆ app.use(verify.jwtChallenges()) // vuln-code-snippet hide-line
+            ⋮┆----------------------------------------
+          350┆ app.use('/rest/basket', security.isAuthorized(), security.appendUserId())
+            ⋮┆----------------------------------------
+          352┆ app.use('/api/BasketItems', security.isAuthorized())
+            ⋮┆----------------------------------------
+          353┆ app.use('/api/BasketItems/:id', security.isAuthorized())
+            ⋮┆----------------------------------------
+          355┆ app.use('/api/Feedbacks/:id', security.isAuthorized())
+            ⋮┆----------------------------------------
+          368┆ app.use('/api/Challenges/:id', security.denyAll())
+            ⋮┆----------------------------------------
+          377┆ app.use('/api/Complaints/:id', security.denyAll())
+            ⋮┆----------------------------------------
+          387┆ app.use('/api/SecurityQuestions/:id', security.denyAll())
+            ⋮┆----------------------------------------
+          390┆ app.use('/api/SecurityAnswers/:id', security.denyAll())
+            ⋮┆----------------------------------------
+          392┆ app.use('/rest/user/authentication-details', security.isAuthorized())
+            ⋮┆----------------------------------------
+          393┆ app.use('/rest/basket/:id', security.isAuthorized())
+            ⋮┆----------------------------------------
+          394┆ app.use('/rest/basket/:id/order', security.isAuthorized())
+            ⋮┆----------------------------------------
+          418┆ app.use('/b2b/v2', security.isAuthorized())
+            ⋮┆----------------------------------------
+          425┆ app.use('/api/Quantitys/:id', security.isAccounting(), IpFilter(['123.456.789'], { mode:
+               'allow' }))                                                                             
+            ⋮┆----------------------------------------
+          429┆ app.use('/api/PrivacyRequests', security.isAuthorized())
+            ⋮┆----------------------------------------
+          430┆ app.use('/api/PrivacyRequests/:id', security.isAuthorized())
+            ⋮┆----------------------------------------
+          440┆ app.use('/api/PrivacyRequests/:id', security.denyAll())
+            ⋮┆----------------------------------------
+          471┆ app.use(verify.databaseRelatedChallenges())
+            ⋮┆----------------------------------------
+          648┆ app.use('/dataerasure', dataErasure)
+            ⋮┆----------------------------------------
+          667┆ app.use(serveAngularClient())
+            ⋮┆----------------------------------------
+          670┆ app.use(verify.errorHandlingChallenge())
+            ⋮┆----------------------------------------
+          671┆ app.use(errorhandler())
