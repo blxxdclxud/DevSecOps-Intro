@@ -69,6 +69,8 @@ The checklist includes 3 items:
 
 After pushing the template to the main branch, when I create a new PR, GitHub automatically fills the PR description with our template. This saves time and makes sure everyone includes the same information.
 
+![](submission1_2.png)
+
 ## How Templates Improve Workflow
 
 PR templates help the team because:
